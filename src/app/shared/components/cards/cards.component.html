@@ -1,0 +1,24 @@
+
+
+<ng-container *ngIf="getProduct.length > 0; else prodCat">
+    <div class="card my-4" *ngFor="let todo of getProduct">
+        <div [ngClass]="{
+            'alert-danger': todo.prodCatg === 'product',
+            'alert-dark': todo.prodCatg === 'catlog'
+        }" 
+        class="card-header">
+            <h3>
+                {{todo.prodName}}
+            </h3>
+        </div>
+        <div class="card-body">
+            <p>{{todo.prodDescription}}</p>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #prodCat>
+    <p class="alert alert-warning mt-5">
+        No Product Added yet !!!
+    </p>
+</ng-template>
